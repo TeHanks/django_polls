@@ -12,7 +12,7 @@
     {% if survey_list %}
         <ul>
             {% for survey in survey_list %}
-                <li><a href= "{% url 'detail' survey.id %}">{{ survey.survey_name }}</a></li>
+                <li><a href= "{% url 'polls:detail' survey.id %}">{{ survey.survey_name }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
