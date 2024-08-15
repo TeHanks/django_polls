@@ -11,10 +11,11 @@
         {% for question in question_list %}
             <fieldset>
                 <legend><h1>{{ question.question_text }}</h1></legend>
+                {% if error_message %}<p><strong>{{ question.question_text }} {{ error_message }}</strong></p>{% endif %}
                 {% for choice in choices %}
                     {% if question.id == choice.question_id %}
-                        <input type="radio" name="{{question.question_text}}" value="{{ choice.id }}" id="choice{{ choice.id }}">
-                        <label for="choice{{ choice.id }}">{{ choice.text }}</label><br>
+                        <input type="radio" name="{{question.question_text}}" value="{{ forloop.counter }}" id="choice{{ forloop.counter }}">
+                        <label for="choice{{ forloop.counter }}">{{ choice.text }}</label><br>
                     {% endif %}
                 {% endfor %}
             </fieldset>
@@ -22,7 +23,7 @@
         <input type="submit" value="Vote">
     </form>
 
-            
+
 
 </body>
 </html>
